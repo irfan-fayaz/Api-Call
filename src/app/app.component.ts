@@ -27,24 +27,30 @@ export class AppComponent {
     this.userData = this.myForm.value;
     this.person = this.userData.name;
     if (this.userData.gender === true) {
-      this.services.getGender().subscribe((post1) => {
+      this.services.getGender(this.userData.name).subscribe((post1) => {
         this.user1.push(post1.name, post1.gender, post1.probability);
+        console.log(this.user1)
       });
+      
     }
     if (this.userData.age === true) {
-      this.services.getAge().subscribe((post2) => {
+      this.services.getAge(this.userData.name).subscribe((post2) => {
         console.log(post2.age);
         this.user2.push(post2.age);
       });
     }
     if (this.userData.national === true) {
-      this.services.getNational().subscribe((post3) => {
+      this.services.getNational(this.userData.name).subscribe((post3) => {
         console.log(post3.country);
+        if(post3.country.length===0){
+          console.log("Country not available")
+          this.user3.push("Country name not available")
+        }
+        else{
         this.user3.push(
-          post3.name,
-          post3.country[2].country_id,
-          post3.country[2].probability
-        );
+          post3.country[0].country_id,
+          post3.country[0].probability
+        )};
       });
     }
   }

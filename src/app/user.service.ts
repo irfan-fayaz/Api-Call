@@ -6,13 +6,13 @@ providedIn: 'root'
 })
 export class userService {
 constructor(private http:HttpClient){}
-getGender():Observable<any>{
- return this.http.get('https://api.genderize.io?name=peter')
+getGender(name:any):Observable<any>{
+ return this.http.get('https://api.genderize.io?name='+name)
 }
-getAge():Observable<any>{
- return this.http.get('https://api.agify.io?name=michael')
+getAge(age:any):Observable<any>{
+ return this.http.get('https://api.agify.io?name='+age)
 }
-getNational():Observable<any>{
- return this.http.get('https://api.nationalize.io?name=michael')
+getNational(name:any):Observable<any>{
+ return this.http.get('https://api.nationalize.io?name='+name)
 }
 }

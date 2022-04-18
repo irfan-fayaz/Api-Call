@@ -17,15 +17,16 @@
 
 <div>
   <h1>{{person}}</h1>
-<ul *ngFor="let obj of user1" >
+<ul *ngFor="let obj of user1" style="display: inline-block;">
+ <li>{{obj}}</li>
+</ul>
+<br>
+<ul *ngFor="let obj of user2" style="display: inline-block;">
+  
   <li>{{obj}}</li>
 </ul>
-
-<ul *ngFor="let obj of user2">
-  <li>{{obj}}</li>
-</ul>
-
-<ul *ngFor="let obj of user3">
+<br>
+<ul *ngFor="let obj of user3" style="display: inline-block;">
   <li>{{obj}}</li>
 </ul>
 </div>
